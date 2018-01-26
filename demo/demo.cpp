@@ -34,15 +34,17 @@ using namespace LS;
 
 void changeStructure(const cv::Mat &plain, vector<cv::Mat> &out);
 void testVocCreation(const vector<vector<cv::Mat > > &features);
-Mat loadDescriptors(vector<vector<cv::Mat > > &features,vector<KeyPoint> &keypoints, Mat image);
-
+Mat loadDescriptors(vector<vector<cv::Mat > > &features,  vector<KeyPoint> &keypoints, Mat image);
+void showMatches( Mat img1,  std::vector<KeyPoint>& keypoints1,
+                  Mat img2,  std::vector<KeyPoint>& keypoints2);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 void createDatabase(OrbDatabase &db, const vector<vector<cv::Mat > > &features) ;
 int queryDatabase(OrbDatabase &db, const vector<vector<cv::Mat > > &features) ;
 
-void loadFeatures(ifstream &infile,vector<vector<Mat> > &features,string str1, int nimages,bool query,OrbDatabase &db,std::map<int,MapFrame> &mapImageEntry);
+void loadFeatures(ifstream &infile, vector<vector<Mat > > &features, string datasetPath, int nimages,std::map<int, MapFrame> &mapImageEntry);
 
+Mat orbDescriptors(Mat image,vector<cv::KeyPoint> &keypoints,vector<vector<cv::Mat > > &features);
 // number of training images
 const int NIMAGES = 1508;
 const int TESTNIMAGES = 1189;
@@ -59,18 +61,21 @@ void wait()
 int main(void)
 
 {
-  std::map<int, MapFrame> mapImageEntry;
+  std::map<int, MapFrame> mapImageDataSet;
+  std::map<int, MapFrame> mapImageTestSet;
   std::ifstream dataSetPoints("../demo/dataset/16-01-2018/pointcloudtest.txt");
-  std::ifstream testSetPoints("../demo/dataset/test_set/pointcloudtest.txt");
+  std::ifstream testSetPoints("../demo/dataset/16-01-2018/pointcloudtest.txt");
   vector<vector<cv::Mat > > featuresDataSet,featuresTestSet;
   string dataSetImages("../demo/dataset/16-01-2018/");
-  string testSetImages("../demo/dataset/test_set/");
+  string testSetImages("../demo/dataset/16-01-2018/");
+  string jpg(".jpg");
+  Mat imgTest,imgData;
   // load the vocabulary from disk
   OrbVocabulary voc("small_voc.yml.gz");
 
   OrbDatabase db(voc, false, 0);
 
-  loadFeatures(dataSetPoints, featuresDataSet,dataSetImages, NIMAGES,false, db, mapImageEntry);
+  loadFeatures(dataSetPoints, featuresDataSet,dataSetImages, NIMAGES, mapImageDataSet);
 
   testVocCreation(featuresDataSet);
 
@@ -83,20 +88,33 @@ int main(void)
   // db creates a copy of the vocabulary, we may get rid of "voc" now
 
   createDatabase(db,featuresDataSet);
-  loadFeatures(testSetPoints, featuresTestSet,testSetImages ,NIMAGES,true,db,mapImageEntry);
+
+  loadFeatures(testSetPoints, featuresTestSet,testSetImages ,NIMAGES,mapImageTestSet);
+
+  for(int i = 0; i<mapImageTestSet.size();i++) {
+    vector<vector<cv::Mat > > foundFeatures;
+    foundFeatures.reserve(2);
+    imgTest = imread(testSetImages + mapImageTestSet[i].imageName + jpg, IMREAD_GRAYSCALE);
+
+    loadDescriptors(foundFeatures,mapImageTestSet[i].keyPoints,imgTest);
+//    orbDescriptors(imgTest,mapImageTestSet[i].keyPoints,foundFeatures);
+    int result = queryDatabase(db,foundFeatures);
+    if(result != -1){
+        MapFrame mapFrame =  mapImageDataSet[result];
+        imgData = imread(dataSetImages + mapImageDataSet[result].imageName + jpg, IMREAD_GRAYSCALE);
+        showMatches(imgTest,mapImageTestSet[i].keyPoints,imgData,mapImageDataSet[result].keyPoints);
+    }
+  }
   cout << "Test Completed" << endl;
-
-
-
 
   cout << endl;
   return 0;
 }
 
-void loadFeatures(ifstream &infile, vector<vector<Mat > > &features,string str1, int nimages,bool query,OrbDatabase &db,std::map<int, MapFrame> &mapImageEntry) {
+void loadFeatures(ifstream &infile, vector<vector<Mat > > &features, string datasetPath, int nimages,std::map<int, MapFrame> &mapImageEntry) {
   std::string ts;
   std:string line;
-  vector<KeyPoint> kpts1, kpts2;
+  vector<KeyPoint> kpts1;
   Mat out0,out1,desc1,desc2,match;
 
   float x, y;
@@ -109,8 +127,8 @@ void loadFeatures(ifstream &infile, vector<vector<Mat > > &features,string str1,
     stringstream iss(line);
     if(iss >> ts){
 
-      string str2(".jpg");
-      img1 = imread(str1 + ts + str2, IMREAD_GRAYSCALE);
+      string jpg(".jpg");
+      img1 = imread(datasetPath + ts + jpg, IMREAD_GRAYSCALE);
       //      cout << "Image:" << ts << " -> "<<i << endl;
       while (getline(infile, line)){
         stringstream iss(line);
@@ -118,99 +136,31 @@ void loadFeatures(ifstream &infile, vector<vector<Mat > > &features,string str1,
           KeyPoint kp1;
           kp1.pt.x = x;
           kp1.pt.y = y;
-          kp1.size = 5;
           kpts1.push_back(kp1);
         }else{
           break;
         }
       }
 
-//                    cv::Ptr<cv::ORB> orb = cv::ORB::create();
-//                    cv::Mat mask;
-//                    vector<cv::KeyPoint> keypoints;
-//                    cv::Mat descriptors;
-//
-//                    orb->detectAndCompute(img1, mask, keypoints, descriptors);
-//
-//                    features.push_back(vector<cv::Mat >());
-//                    changeStructure(descriptors, features.back());
-
       desc1= loadDescriptors(features,kpts1,img1);
-      if(query){
-          vector<vector<cv::Mat > > foundFeatures;
-        foundFeatures.reserve(nimages);
-        cv::Mat descriptors1;
-
-        int res = queryDatabase(db,features);
-          MapFrame mapFrame =  mapImageEntry[res];
-
-          Mat imgres;
-          string dataSetImages("../demo/dataset/16-01-2018/");
-
-          imgres = imread(dataSetImages + mapFrame.imageName + str2, IMREAD_GRAYSCALE);
-
-//          cv::Ptr<cv::ORB> orb = cv::ORB::create();
-//          cv::Mat mask;
-//          vector<cv::KeyPoint> keypoints;
-//          cv::Mat descriptors;
-//
-//          orb->detectAndCompute(imgres, mask, mapFrame.keyPoints, descriptors1);
-//
-//          foundFeatures.push_back(vector<cv::Mat >());
-//          changeStructure(descriptors, foundFeatures.back());
-
-          desc2=loadDescriptors(foundFeatures,mapFrame.keyPoints,imgres);
-
-//          drawKeypoints(imgres, mapFrame.keyPoints, out1);
-//
-//          imshow("HighScoreImage", WINDOW_NORMAL);
-//          imshow("HighScoreImage",out1);
-//
-//          drawKeypoints(img1, kpts1, out0);
-//          namedWindow("InputImage", WINDOW_NORMAL);
-//          imshow("InputImage", out0);
-          BFMatcher matcher(NORM_L2, true);   //BFMatcher matcher(NORM_L2);
-
-          vector<DMatch> filteredMatches12, matches12, matches21;
-          matcher.match( desc1,desc2, matches12 );
-          matcher.match( desc2,desc1, matches21 );
-          for( size_t i = 0; i < matches12.size(); i++ )
-          {
-              DMatch forward = matches12[i];
-              DMatch backward = matches21[forward.trainIdx];
-              if( backward.trainIdx == forward.queryIdx )
-                  filteredMatches12.push_back( forward );
-          }
-
-          drawMatches(img1,kpts1,imgres,mapFrame.keyPoints, filteredMatches12, match);
-          imshow("MATCHES", WINDOW_NORMAL);
-          imshow("MATCHES",match);
-          waitKey();
-
-          out0.deallocate();
-          out1.deallocate();
-          features.clear();
-      } else{
-                MapFrame mapFrame;
-                mapFrame.keyPoints = kpts1;
-                mapFrame.imageName = ts;
-                mapImageEntry.insert(std::make_pair<int,MapFrame>(i,mapFrame) );
-    }
-
-      i++;
+//      desc1= orbDescriptors(img1,kpts1,features);
+      MapFrame mapFrame;
+      mapFrame.keyPoints = kpts1;
+      mapFrame.imageName = ts;
+      mapImageEntry.insert(std::make_pair<int,MapFrame>(i,mapFrame) );
       kpts1.clear();
       img1.deallocate();
-    }
+        i++;
+      }
   }
 }
-Mat loadDescriptors(vector<vector<cv::Mat > > &features,vector<KeyPoint> &keypoints, Mat image){
-
+Mat loadDescriptors(vector<vector<cv::Mat > > &features,  vector<KeyPoint> &keypoints, Mat image){
   cv::Ptr<cv::ORB> orb = cv::ORB::create();
   Mat descriptors;
   orb->compute(image,keypoints,descriptors);
   features.push_back(vector<cv::Mat >());
   changeStructure(descriptors, features.back());
-    return descriptors;
+  return descriptors;
 }
 
 // ----------------------------------------------------------------------------
@@ -230,8 +180,8 @@ void changeStructure(const cv::Mat &plain, vector<cv::Mat> &out)
 void testVocCreation(const vector<vector<cv::Mat > > &features)
 {
   // branching factor and depth levels
-  const int k = 4;
-  const int L = 6;
+  const int k = 9;
+  const int L = 3;
   const WeightingType weight = TF_IDF;
   const ScoringType score = L1_NORM;
 
@@ -289,16 +239,63 @@ int queryDatabase(OrbDatabase &db, const vector<vector<cv::Mat > > &features){
   double highScore = 0;
   int position = 0;
 
-  db.query(features[0], ret,9000);
+  db.query(features[1], ret,9000);
   // ret[0] is always the same image in this case, because we added it to the
   // database. ret[1] is the second best match.
 
-  cout <<"Image: "<<ret[0].Id<< " Score: "<< ret[0].Score;
+  cout <<"Image: "<<ret[1].Id<< " Score: "<< ret[1].Score;
 
-  cout << endl;
-  return ret[0].Id;
+    cout << endl;
+    if(ret[1].Score > 0.4){
+
+        return ret[1].Id;
+    } else{
+        return -1;
+    }
 }
 
+void showMatches( Mat img1,  std::vector<KeyPoint>& keypoints1,
+                  Mat img2,  std::vector<KeyPoint>& keypoints2){
+
+  vector<vector<cv::Mat > > features;
+  features.reserve(200);
+  Mat match;
+
+  BFMatcher matcher(NORM_L2, true);   //BFMatcher matcher(NORM_L2);
+  Mat desc1 = loadDescriptors(features,keypoints1,img1);
+  Mat desc2 = loadDescriptors(features,keypoints2, img2);
+//  Mat desc1 = orbDescriptors(img1,keypoints1,features);
+//  Mat desc2 = orbDescriptors(img2,keypoints2,features);
+  vector<DMatch> filteredMatches12, matches12, matches21;
+  matcher.match( desc1,desc2, matches12 );
+  matcher.match( desc2,desc1, matches21 );
+  for( size_t i = 0; i < matches12.size(); i++ )
+  {
+      DMatch forward = matches12[i];
+      DMatch backward = matches21[forward.trainIdx];
+      if( backward.trainIdx == forward.queryIdx )
+         filteredMatches12.push_back( forward );
+  }
+
+
+
+
+  drawMatches(img1,keypoints1,img2,keypoints2, filteredMatches12, match);
+  imshow("MATCHES", WINDOW_NORMAL);
+  imshow("MATCHES",match);
+  waitKey();
+
+}
+Mat orbDescriptors(Mat image,vector<cv::KeyPoint> &keypoints,vector<vector<cv::Mat > > &features){
+    cv::Mat mask;
+    cv::Mat descriptors;
+    cv::Ptr<cv::ORB> orb = cv::ORB::create();
+    orb->detectAndCompute(image, mask, keypoints, descriptors);
+
+    features.push_back(vector<cv::Mat >());
+    changeStructure(descriptors, features.back());
+    return descriptors;
+}
 // ----------------------------------------------------------------------------
 
 
