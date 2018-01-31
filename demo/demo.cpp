@@ -22,13 +22,16 @@
 
 #include <map>
 #include <MapFrame.h>
-
+#include <thread>
 
 using namespace DBoW2;
 using namespace DUtils;
 using namespace cv;
 using namespace std;
 using namespace LS;
+#include "ws/server_ws.hpp"
+
+using WsServer = SimpleWeb::SocketServer<SimpleWeb::WS>;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -71,6 +74,7 @@ int main(void)
   string jpg(".jpg");
   Mat imgTest,imgData;
   // load the vocabulary from disk
+
   OrbVocabulary voc("small_voc.yml.gz");
 
   OrbDatabase db(voc, false, 0);
@@ -106,9 +110,60 @@ int main(void)
     }
   }
   cout << "Test Completed" << endl;
-
-  cout << endl;
-  return 0;
+//
+//  cout << endl;
+//    cout << "***************************************" << endl;
+//
+//    WsServer server;
+//    server.config.address = "192.168.20.81";
+//    server.config.port = 8000;
+//
+//    auto &echo = server.endpoint["/"];
+//
+//    echo.on_message = [](shared_ptr<WsServer::Connection> connection, shared_ptr<WsServer::Message> message) {
+//        auto message_str = message->string();
+//
+//        cout << "Server: Message received: \"" << message_str << "\" from " << connection.get() << endl;
+//
+//        cout << "Server: Sending message \"" << message_str << "\" to " << connection.get() << endl;
+//
+//        auto send_stream = make_shared<WsServer::SendStream>();
+//        *send_stream << message_str;
+//        // connection->send is an asynchronous function
+//        connection->send(send_stream, [](const SimpleWeb::error_code &ec) {
+//            if(ec) {
+//                cout << "Server: Error sending message. " <<
+//                     // See http://www.boost.org/doc/libs/1_55_0/doc/html/boost_asio/reference.html, Error Codes for error code meanings
+//                     "Error: " << ec << ", error message: " << ec.message() << endl;
+//            }
+//        });
+//    };
+//
+//    echo.on_open = [](shared_ptr<WsServer::Connection> connection) {
+//        cout << "Server: Opened connection " << connection.get() << endl;
+//    };
+//
+//    // See RFC 6455 7.4.1. for status codes
+//    echo.on_close = [](shared_ptr<WsServer::Connection> connection, int status, const string & /*reason*/) {
+//        cout << "Server: Closed connection " << connection.get() << " with status code " << status << endl;
+//    };
+//
+//    // See http://www.boost.org/doc/libs/1_55_0/doc/html/boost_asio/reference.html, Error Codes for error code meanings
+//    echo.on_error = [](shared_ptr<WsServer::Connection> connection, const SimpleWeb::error_code &ec) {
+//        cout << "Server: Error in connection " << connection.get() << ". "
+//             << "Error: " << ec << ", error message: " << ec.message() << endl;
+//    };
+//
+//    thread server_thread([&server]() {
+//        // Start WS-server
+//        server.start();
+//    });
+//
+//    // Wait for server to start so that the client can connect
+//    this_thread::sleep_for(chrono::seconds(1));
+//
+//    server_thread.join();
+    return 0;
 }
 
 void loadFeatures(ifstream &infile, vector<vector<Mat > > &features, string datasetPath, int nimages,std::map<int, MapFrame> &mapImageEntry) {
@@ -147,7 +202,7 @@ void loadFeatures(ifstream &infile, vector<vector<Mat > > &features, string data
       MapFrame mapFrame;
       mapFrame.keyPoints = kpts1;
       mapFrame.imageName = ts;
-      mapImageEntry.insert(std::make_pair<int,MapFrame>(i,mapFrame) );
+      mapImageEntry.insert(make_pair(i,mapFrame) );
       kpts1.clear();
       img1.deallocate();
         i++;
@@ -239,7 +294,7 @@ int queryDatabase(OrbDatabase &db, const vector<vector<cv::Mat > > &features){
   double highScore = 0;
   int position = 0;
 
-  db.query(features[1], ret,9000);
+  db.query(features[0], ret,9000);
   // ret[0] is always the same image in this case, because we added it to the
   // database. ret[1] is the second best match.
 
