@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 
+#include <string>
 // DBoW2
 #include "DBoW2.h" // defines OrbVocabulary and OrbDatabase
 
@@ -19,6 +20,7 @@
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/features2d.hpp>
+#include <opencv2/opencv.hpp>
 
 #include <map>
 #include <MapFrame.h>
@@ -30,11 +32,13 @@ using namespace cv;
 using namespace std;
 using namespace LS;
 #include "ws/server_ws.hpp"
+#include "ws/crypto.hpp"
 
 using WsServer = SimpleWeb::SocketServer<SimpleWeb::WS>;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
+std::string base64_decode(std::string const& encoded_string);
+static inline bool is_base64(unsigned char c);
 void changeStructure(const cv::Mat &plain, vector<cv::Mat> &out);
 void testVocCreation(const vector<vector<cv::Mat > > &features);
 Mat loadDescriptors(vector<vector<cv::Mat > > &features,  vector<KeyPoint> &keypoints, Mat image);
@@ -59,110 +63,118 @@ void wait()
   cout << endl << "Press enter to continue" << endl;
   getchar();
 }
-
+static const std::string base64_chars =
+                "abcdef"
+                "0123456789";
 // ----------------------------------------------------------------------------
 int main(void)
 
 {
-  std::map<int, MapFrame> mapImageDataSet;
-  std::map<int, MapFrame> mapImageTestSet;
-  std::ifstream dataSetPoints("../demo/dataset/16-01-2018/pointcloudtest.txt");
-  std::ifstream testSetPoints("../demo/dataset/16-01-2018/pointcloudtest.txt");
-  vector<vector<cv::Mat > > featuresDataSet,featuresTestSet;
-  string dataSetImages("../demo/dataset/16-01-2018/");
-  string testSetImages("../demo/dataset/16-01-2018/");
-  string jpg(".jpg");
-  Mat imgTest,imgData;
-  // load the vocabulary from disk
+//  std::map<int, MapFrame> mapImageDataSet;
+//  std::map<int, MapFrame> mapImageTestSet;
+//  std::ifstream dataSetPoints("../demo/dataset/16-01-2018/pointcloudtest.txt");
+//  std::ifstream testSetPoints("../demo/dataset/16-01-2018/pointcloudtest.txt");
+//  vector<vector<cv::Mat > > featuresDataSet,featuresTestSet;
+//  string dataSetImages("../demo/dataset/16-01-2018/");
+//  string testSetImages("../demo/dataset/16-01-2018/");
+//  string jpg(".jpg");
+//  Mat imgTest,imgData;
+//  // load the vocabulary from disk
+//
+//  OrbVocabulary voc("small_voc.yml.gz");
+//
+//  OrbDatabase db(voc, false, 0);
+//
+//  loadFeatures(dataSetPoints, featuresDataSet,dataSetImages, NIMAGES, mapImageDataSet);
+//
+//  testVocCreation(featuresDataSet);
+//
+//  wait();
+//
+//  // false = do not use direct index
+//  // (so ignore the last param)
+//  // The direct index is useful if we want to retrieve the features that
+//  // belong to some vocabulary node.
+//  // db creates a copy of the vocabulary, we may get rid of "voc" now
+//
+//  createDatabase(db,featuresDataSet);
+//
+//  loadFeatures(testSetPoints, featuresTestSet,testSetImages ,NIMAGES,mapImageTestSet);
+//
+//  for(int i = 0; i<mapImageTestSet.size();i++) {
+//    vector<vector<cv::Mat > > foundFeatures;
+//    foundFeatures.reserve(2);
+//    imgTest = imread(testSetImages + mapImageTestSet[i].imageName + jpg, IMREAD_GRAYSCALE);
+//
+//    loadDescriptors(foundFeatures,mapImageTestSet[i].keyPoints,imgTest);
+////    orbDescriptors(imgTest,mapImageTestSet[i].keyPoints,foundFeatures);
+//    int result = queryDatabase(db,foundFeatures);
+//    if(result != -1){
+//        MapFrame mapFrame =  mapImageDataSet[result];
+//        imgData = imread(dataSetImages + mapImageDataSet[result].imageName + jpg, IMREAD_GRAYSCALE);
+//        showMatches(imgTest,mapImageTestSet[i].keyPoints,imgData,mapImageDataSet[result].keyPoints);
+//    }
+//  }
+//  cout << "Test Completed" << endl;
 
-  OrbVocabulary voc("small_voc.yml.gz");
+  cout << endl;
+    cout << "***************************************" << endl;
 
-  OrbDatabase db(voc, false, 0);
+    WsServer server;
+    server.config.address = "192.168.178.115";
+    server.config.port = 8000;
+    auto &echo = server.endpoint["/"];
 
-  loadFeatures(dataSetPoints, featuresDataSet,dataSetImages, NIMAGES, mapImageDataSet);
+    echo.on_message = [](shared_ptr<WsServer::Connection> connection, shared_ptr<WsServer::Message> message) {
+        cout << "Size: " << message->size()<< endl;
+        auto message_str = message->string();
+//        String  SimpleWeb::Crypto::Base64::decode(message_str);
+        std::string str = base64_decode(message_str);
+        cout << "Length :"<<str.length();
 
-  testVocCreation(featuresDataSet);
+        //BASE64 to MAT in Opencv
+        cv::Mat mat(154,32,CV_8UC1, str.data());
 
-  wait();
+        cout << "Server: Message received: \"" << message_str << "\" from " << connection.get() << endl;
 
-  // false = do not use direct index
-  // (so ignore the last param)
-  // The direct index is useful if we want to retrieve the features that
-  // belong to some vocabulary node.
-  // db creates a copy of the vocabulary, we may get rid of "voc" now
+        cout << "Server: Sending message \"" << message_str << "\" to " << connection.get() << endl;
 
-  createDatabase(db,featuresDataSet);
+        auto send_stream = make_shared<WsServer::SendStream>();
+        *send_stream << message_str;
+        // connection->send is an asynchronous function
+        connection->send(send_stream, [](const SimpleWeb::error_code &ec) {
+            if(ec) {
+                cout << "Server: Error sending message. " <<
+                     // See http://www.boost.org/doc/libs/1_55_0/doc/html/boost_asio/reference.html, Error Codes for error code meanings
+                     "Error: " << ec << ", error message: " << ec.message() << endl;
+            }
+        });
+    };
 
-  loadFeatures(testSetPoints, featuresTestSet,testSetImages ,NIMAGES,mapImageTestSet);
+    echo.on_open = [](shared_ptr<WsServer::Connection> connection) {
+        cout << "Server: Opened connection " << connection.get() << endl;
+    };
 
-  for(int i = 0; i<mapImageTestSet.size();i++) {
-    vector<vector<cv::Mat > > foundFeatures;
-    foundFeatures.reserve(2);
-    imgTest = imread(testSetImages + mapImageTestSet[i].imageName + jpg, IMREAD_GRAYSCALE);
+    // See RFC 6455 7.4.1. for status codes
+    echo.on_close = [](shared_ptr<WsServer::Connection> connection, int status, const string & /*reason*/) {
+        cout << "Server: Closed connection " << connection.get() << " with status code " << status << endl;
+    };
 
-    loadDescriptors(foundFeatures,mapImageTestSet[i].keyPoints,imgTest);
-//    orbDescriptors(imgTest,mapImageTestSet[i].keyPoints,foundFeatures);
-    int result = queryDatabase(db,foundFeatures);
-    if(result != -1){
-        MapFrame mapFrame =  mapImageDataSet[result];
-        imgData = imread(dataSetImages + mapImageDataSet[result].imageName + jpg, IMREAD_GRAYSCALE);
-        showMatches(imgTest,mapImageTestSet[i].keyPoints,imgData,mapImageDataSet[result].keyPoints);
-    }
-  }
-  cout << "Test Completed" << endl;
-//
-//  cout << endl;
-//    cout << "***************************************" << endl;
-//
-//    WsServer server;
-//    server.config.address = "192.168.20.81";
-//    server.config.port = 8000;
-//
-//    auto &echo = server.endpoint["/"];
-//
-//    echo.on_message = [](shared_ptr<WsServer::Connection> connection, shared_ptr<WsServer::Message> message) {
-//        auto message_str = message->string();
-//
-//        cout << "Server: Message received: \"" << message_str << "\" from " << connection.get() << endl;
-//
-//        cout << "Server: Sending message \"" << message_str << "\" to " << connection.get() << endl;
-//
-//        auto send_stream = make_shared<WsServer::SendStream>();
-//        *send_stream << message_str;
-//        // connection->send is an asynchronous function
-//        connection->send(send_stream, [](const SimpleWeb::error_code &ec) {
-//            if(ec) {
-//                cout << "Server: Error sending message. " <<
-//                     // See http://www.boost.org/doc/libs/1_55_0/doc/html/boost_asio/reference.html, Error Codes for error code meanings
-//                     "Error: " << ec << ", error message: " << ec.message() << endl;
-//            }
-//        });
-//    };
-//
-//    echo.on_open = [](shared_ptr<WsServer::Connection> connection) {
-//        cout << "Server: Opened connection " << connection.get() << endl;
-//    };
-//
-//    // See RFC 6455 7.4.1. for status codes
-//    echo.on_close = [](shared_ptr<WsServer::Connection> connection, int status, const string & /*reason*/) {
-//        cout << "Server: Closed connection " << connection.get() << " with status code " << status << endl;
-//    };
-//
-//    // See http://www.boost.org/doc/libs/1_55_0/doc/html/boost_asio/reference.html, Error Codes for error code meanings
-//    echo.on_error = [](shared_ptr<WsServer::Connection> connection, const SimpleWeb::error_code &ec) {
-//        cout << "Server: Error in connection " << connection.get() << ". "
-//             << "Error: " << ec << ", error message: " << ec.message() << endl;
-//    };
-//
-//    thread server_thread([&server]() {
-//        // Start WS-server
-//        server.start();
-//    });
-//
-//    // Wait for server to start so that the client can connect
-//    this_thread::sleep_for(chrono::seconds(1));
-//
-//    server_thread.join();
+    // See http://www.boost.org/doc/libs/1_55_0/doc/html/boost_asio/reference.html, Error Codes for error code meanings
+    echo.on_error = [](shared_ptr<WsServer::Connection> connection, const SimpleWeb::error_code &ec) {
+        cout << "Server: Error in connection " << connection.get() << ". "
+             << "Error: " << ec << ", error message: " << ec.message() << endl;
+    };
+
+    thread server_thread([&server]() {
+        // Start WS-server
+        server.start();
+    });
+
+    // Wait for server to start so that the client can connect
+    this_thread::sleep_for(chrono::seconds(1));
+
+    server_thread.join();
     return 0;
 }
 
@@ -352,5 +364,47 @@ Mat orbDescriptors(Mat image,vector<cv::KeyPoint> &keypoints,vector<vector<cv::M
     return descriptors;
 }
 // ----------------------------------------------------------------------------
+std::string base64_decode(std::string const& encoded_string) {
+    int in_len = encoded_string.size();
+    int i = 0;
+    int j = 0;
+    int in_ = 0;
+    unsigned char char_array_4[4], char_array_3[3];
+    std::string ret;
 
+    while (in_len-- && (encoded_string[in_] != '=') && is_base64(encoded_string[in_])) {
+        char_array_4[i++] = encoded_string[in_]; in_++;
+        if (i == 4) {
+            for (i = 0; i < 4; i++)
+                char_array_4[i] = base64_chars.find(char_array_4[i]);
 
+            char_array_3[0] = (char_array_4[0] << 2) + ((char_array_4[1] & 0x30) >> 4);
+            char_array_3[1] = ((char_array_4[1] & 0xf) << 4) + ((char_array_4[2] & 0x3c) >> 2);
+            char_array_3[2] = ((char_array_4[2] & 0x3) << 6) + char_array_4[3];
+
+            for (i = 0; (i < 3); i++)
+                ret += char_array_3[i];
+            i = 0;
+        }
+    }
+
+    if (i) {
+        for (j = i; j < 4; j++)
+            char_array_4[j] = 0;
+
+        for (j = 0; j < 4; j++)
+            char_array_4[j] = base64_chars.find(char_array_4[j]);
+
+        char_array_3[0] = (char_array_4[0] << 2) + ((char_array_4[1] & 0x30) >> 4);
+        char_array_3[1] = ((char_array_4[1] & 0xf) << 4) + ((char_array_4[2] & 0x3c) >> 2);
+        char_array_3[2] = ((char_array_4[2] & 0x3) << 6) + char_array_4[3];
+
+        for (j = 0; (j < i - 1); j++) ret += char_array_3[j];
+    }
+
+    return ret;
+}
+
+static inline bool is_base64(unsigned char c) {
+    return (isalnum(c) || (c == '+') || (c == '/'));
+}
