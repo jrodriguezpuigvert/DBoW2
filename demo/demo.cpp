@@ -22,8 +22,14 @@
 #include <opencv2/features2d.hpp>
 #include <opencv2/opencv.hpp>
 
+#include <boost/archive/iterators/binary_from_base64.hpp>
+#include <boost/archive/iterators/base64_from_binary.hpp>
+#include <boost/archive/iterators/transform_width.hpp>
+#include <boost/algorithm/string.hpp>
+#include <boost/beast/core/detail/base64.hpp>
 #include <map>
 #include <MapFrame.h>
+#include <Base64.h>
 #include <thread>
 
 using namespace DBoW2;
@@ -41,21 +47,21 @@ std::string base64_decode(std::string const& encoded_string);
 static inline bool is_base64(unsigned char c);
 void changeStructure(const cv::Mat &plain, vector<cv::Mat> &out);
 void testVocCreation(const vector<vector<cv::Mat > > &features);
-Mat loadDescriptors(vector<vector<cv::Mat > > &features,  vector<KeyPoint> &keypoints, Mat image);
+Mat loadDescriptors(vector<cv::Mat >  &features,  vector<KeyPoint> &keypoints, Mat image);
 void showMatches( Mat img1,  std::vector<KeyPoint>& keypoints1,
                   Mat img2,  std::vector<KeyPoint>& keypoints2);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
+std::string decode64(const std::string &val);
 void createDatabase(OrbDatabase &db, const vector<vector<cv::Mat > > &features) ;
-int queryDatabase(OrbDatabase &db, const vector<vector<cv::Mat > > &features) ;
+int queryDatabase(OrbDatabase &db, const vector<cv::Mat >  &features) ;
 
-void loadFeatures(ifstream &infile, vector<vector<Mat > > &features, string datasetPath, int nimages,std::map<int, MapFrame> &mapImageEntry);
+void loadFeatures(ifstream &infile, vector<Mat >  &features, string datasetPath, int nimages,std::map<int, MapFrame> &mapImageEntry);
 
 Mat orbDescriptors(Mat image,vector<cv::KeyPoint> &keypoints,vector<vector<cv::Mat > > &features);
 // number of training images
 const int NIMAGES = 1508;
 const int TESTNIMAGES = 1189;
-
+std::string string_to_hex(const std::string& input);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 void wait()
@@ -70,85 +76,157 @@ static const std::string base64_chars =
 int main(void)
 
 {
-//  std::map<int, MapFrame> mapImageDataSet;
-//  std::map<int, MapFrame> mapImageTestSet;
-//  std::ifstream dataSetPoints("../demo/dataset/16-01-2018/pointcloudtest.txt");
-//  std::ifstream testSetPoints("../demo/dataset/16-01-2018/pointcloudtest.txt");
-//  vector<vector<cv::Mat > > featuresDataSet,featuresTestSet;
-//  string dataSetImages("../demo/dataset/16-01-2018/");
-//  string testSetImages("../demo/dataset/16-01-2018/");
-//  string jpg(".jpg");
-//  Mat imgTest,imgData;
-//  // load the vocabulary from disk
-//
+  std::map<int, MapFrame> mapImageDataSet;
+  std::map<int, MapFrame> mapImageTestSet;
+  std::ifstream dataSetPoints("../demo/dataset/16-01-2018/pointcloudtest.txt");
+  std::ifstream testSetPoints("../demo/dataset/16-01-2018/pointcloudtest.txt");
+  vector<vector<cv::Mat > > featuresDataSet,featuresTestSet;
+  string dataSetImages("../demo/dataset/16-01-2018/");
+  string testSetImages("../demo/dataset/16-01-2018/");
+  string jpg(".jpg");
+  Mat imgTest,imgData,mat1;
+  // load the vocabulary from disk
+// CREATE
 //  OrbVocabulary voc("small_voc.yml.gz");
 //
 //  OrbDatabase db(voc, false, 0);
-//
+//    testVocCreation(featuresDataSet);
+//    createDatabase(db,featuresDataSet);
+    OrbDatabase db("small_db.yml.gz");
+
 //  loadFeatures(dataSetPoints, featuresDataSet,dataSetImages, NIMAGES, mapImageDataSet);
 //
-//  testVocCreation(featuresDataSet);
 //
-//  wait();
-//
-//  // false = do not use direct index
-//  // (so ignore the last param)
-//  // The direct index is useful if we want to retrieve the features that
-//  // belong to some vocabulary node.
-//  // db creates a copy of the vocabulary, we may get rid of "voc" now
-//
-//  createDatabase(db,featuresDataSet);
-//
-//  loadFeatures(testSetPoints, featuresTestSet,testSetImages ,NIMAGES,mapImageTestSet);
+//  loadFeatures(testSetPoints, featuresTestSet,testSetImages ,4,mapImageTestSet);
 //
 //  for(int i = 0; i<mapImageTestSet.size();i++) {
 //    vector<vector<cv::Mat > > foundFeatures;
-//    foundFeatures.reserve(2);
+//    foundFeatures.reserve(20);
 //    imgTest = imread(testSetImages + mapImageTestSet[i].imageName + jpg, IMREAD_GRAYSCALE);
-//
 //    loadDescriptors(foundFeatures,mapImageTestSet[i].keyPoints,imgTest);
 ////    orbDescriptors(imgTest,mapImageTestSet[i].keyPoints,foundFeatures);
 //    int result = queryDatabase(db,foundFeatures);
-//    if(result != -1){
-//        MapFrame mapFrame =  mapImageDataSet[result];
-//        imgData = imread(dataSetImages + mapImageDataSet[result].imageName + jpg, IMREAD_GRAYSCALE);
-//        showMatches(imgTest,mapImageTestSet[i].keyPoints,imgData,mapImageDataSet[result].keyPoints);
-//    }
+////    if(result != -1){
+////        MapFrame mapFrame =  mapImageDataSet[result];
+////        imgData = imread(dataSetImages + mapImageDataSet[result].imageName + jpg, IMREAD_GRAYSCALE);
+//////        showMatches(imgTest,mapImageTestSet[i].keyPoints,imgData,mapImageDataSet[result].keyPoints);
+////    }
 //  }
-//  cout << "Test Completed" << endl;
+  cout << "Test Completed" << endl;
 
+//    db.save("small_db.yml.gz");
   cout << endl;
     cout << "***************************************" << endl;
 
     WsServer server;
-    server.config.address = "192.168.178.115";
+    server.config.address = "192.168.20.65";
     server.config.port = 8000;
     auto &echo = server.endpoint["/"];
 
     echo.on_message = [](shared_ptr<WsServer::Connection> connection, shared_ptr<WsServer::Message> message) {
-        cout << "Size: " << message->size()<< endl;
+
+        cout << "ON_MESSAGE "<<" Size: " << message->size()<< endl;
         auto message_str = message->string();
-//        String  SimpleWeb::Crypto::Base64::decode(message_str);
-        std::string str = base64_decode(message_str);
-        cout << "Length :"<<str.length();
-
-        //BASE64 to MAT in Opencv
-        cv::Mat mat(154,32,CV_8UC1, str.data());
-
         cout << "Server: Message received: \"" << message_str << "\" from " << connection.get() << endl;
 
         cout << "Server: Sending message \"" << message_str << "\" to " << connection.get() << endl;
+        cout <<"ON_MESSAGE "<< " Decoding SimpleWeb::Crypto::Base64::decode"<< endl;
 
-        auto send_stream = make_shared<WsServer::SendStream>();
-        *send_stream << message_str;
-        // connection->send is an asynchronous function
-        connection->send(send_stream, [](const SimpleWeb::error_code &ec) {
-            if(ec) {
-                cout << "Server: Error sending message. " <<
-                     // See http://www.boost.org/doc/libs/1_55_0/doc/html/boost_asio/reference.html, Error Codes for error code meanings
-                     "Error: " << ec << ", error message: " << ec.message() << endl;
+//        std::string simpleWebstr =  SimpleWeb::Crypto::Base64::decode(message_str);
+////        cout <<"ON_MESSAGE Message: "<< simpleWebstr<< endl;
+//        cout <<"ON_MESSAGE Length: "<< simpleWebstr.length()<< endl;
+//        cout <<"ON_MESSAGE HEX: "<< string_to_hex(simpleWebstr)<< endl;
+
+        cout <<"ON_MESSAGE "<< " Decoding std::string decode64"<< endl;
+
+        std::string decodestr =  boost::beast::detail::base64_decode((message_str));
+//        cout <<"ON_MESSAGE Message: "<< decodestr<< endl;
+        cout <<"ON_MESSAGE Length: "<< decodestr.length()<< endl;
+//        cout <<"ON_MESSAGE HEX: "<< string_to_hex(decodestr)<< endl;
+
+
+//        cout <<"ON_MESSAGE "<< " Decoding Base64::Decode "<< endl;
+//        std::string str;
+//        Base64::Decode(message_str,&str);
+//        cout <<"ON_MESSAGE Message: "<<str<< endl;
+//        cout <<"ON_MESSAGE Length: "<< str.length()<< endl;
+//        cout <<"ON_MESSAGE HEX: "<< string_to_hex(str)<< endl;
+
+        cout <<"ON_MESSAGE "<< " Transforming mat into FEATURES * 32 "<< endl;
+//
+        vector<cv::Mat >  foundFeatures;
+        foundFeatures.reserve(1);
+        int index = 0;
+        foundFeatures.resize(decodestr.length()/32);
+        cout<<foundFeatures.at(0)<<endl;
+        for (size_t i = 0; i < decodestr.length() ;i = i+32)
+        {
+            std::string straux = decodestr.substr(i,i+32);
+            Mat aux(1, 32, CV_8UC1);
+            std::vector<int> vectordata(straux.begin(),straux.end());
+            for (size_t j = 0; j < 32; j++)
+            {
+                aux.at<uchar>(0, j) = vectordata.at(j);
             }
-        });
+            foundFeatures.at(index) = aux.row(0);
+            index++;
+        }
+
+        cout<<endl<<"MAT SIZE: "<<foundFeatures.size()<<endl;
+
+        for(int j = 0;j<foundFeatures.size();j++){
+            Mat aux = foundFeatures.at(j);
+
+            cout<<"Col"<<aux.cols<<" "<<"Rows"<<aux.rows<<endl;
+            cout<<"MAT: "<<aux<<endl;
+        }
+
+
+//        for (int i = 0; i < decodestr.length() ; i= i++) {
+//
+//            foundFeatures[j] = aux;
+//            std::vector<int> vectordata(straux.begin(),straux.end());
+//            Mat aux = Mat(vectordata,CV_8UC1);
+//            cout<<"Col"<<aux.cols<<" "<<"Rows"<<aux.rows<<endl;
+//            cout<< aux<<endl;
+//            foundFeatures[j] = aux;
+//            j++;
+//        }
+
+        OrbDatabase db2("small_db.yml.gz");
+
+//        db2.add(foundFeatures);
+//        db2.save("small_db.yml.gz");
+        cout <<"ON_MESSAGE "<< "Testing received features against our DB"<< endl;
+        queryDatabase(db2, foundFeatures);
+
+        std::map<int, MapFrame> mapImageTestSet;
+        std::ifstream testSetPoints("../demo/dataset/ws/pointcloudtest.txt");
+        vector<cv::Mat >  featuresTestSet;
+        string testSetImages("../demo/dataset/ws/");
+        string jpg(".jpg");
+        Mat imgTest;
+
+        loadFeatures(testSetPoints, featuresTestSet,testSetImages ,1,mapImageTestSet);
+
+      for(int i = 0; i<mapImageTestSet.size();i++) {
+            vector<cv::Mat >  foundFeatures1;
+            foundFeatures1.reserve(1);
+            imgTest = imread(testSetImages + mapImageTestSet[i].imageName + jpg, IMREAD_GRAYSCALE);
+            loadDescriptors(foundFeatures1,mapImageTestSet[i].keyPoints,imgTest);
+//          cout<<endl<<"MAT SIZE: "<<foundFeatures1.size()<<endl;
+//
+//          for(int j = 0;j<foundFeatures1.size();j++){
+//              Mat aux = foundFeatures1.at(j);
+//
+//              cout<<"Col"<<aux.cols<<" "<<"Rows"<<aux.rows<<endl;
+//              cout<<"MAT: "<<aux<<endl;
+//            }
+
+
+          int result = queryDatabase(db2,foundFeatures1);
+        }
+
     };
 
     echo.on_open = [](shared_ptr<WsServer::Connection> connection) {
@@ -178,7 +256,22 @@ int main(void)
     return 0;
 }
 
-void loadFeatures(ifstream &infile, vector<vector<Mat > > &features, string datasetPath, int nimages,std::map<int, MapFrame> &mapImageEntry) {
+std::string string_to_hex(const std::string& input)
+{
+    static const char* const lut = "0123456789ABCDEF";
+    size_t len = input.length();
+
+    std::string output;
+    output.reserve(2 * len);
+    for (size_t i = 0; i < len; ++i)
+    {
+        const unsigned char c = input[i];
+        output.push_back(lut[c >> 4]);
+        output.push_back(lut[c & 15]);
+    }
+    return output;
+}
+void loadFeatures(ifstream &infile, vector<Mat >  &features, string datasetPath, int nimages,std::map<int, MapFrame> &mapImageEntry) {
   std::string ts;
   std:string line;
   vector<KeyPoint> kpts1;
@@ -221,12 +314,12 @@ void loadFeatures(ifstream &infile, vector<vector<Mat > > &features, string data
       }
   }
 }
-Mat loadDescriptors(vector<vector<cv::Mat > > &features,  vector<KeyPoint> &keypoints, Mat image){
+Mat loadDescriptors(vector<cv::Mat  > &features,  vector<KeyPoint> &keypoints, Mat image){
   cv::Ptr<cv::ORB> orb = cv::ORB::create();
   Mat descriptors;
   orb->compute(image,keypoints,descriptors);
-  features.push_back(vector<cv::Mat >());
-  changeStructure(descriptors, features.back());
+    cout<<"DESCRIPTOR!:"<<descriptors<<endl;
+  changeStructure(descriptors, features);
   return descriptors;
 }
 
@@ -239,6 +332,7 @@ void changeStructure(const cv::Mat &plain, vector<cv::Mat> &out)
   for(int i = 0; i < plain.rows; ++i)
   {
     out[i] = plain.row(i);
+      cout<<out[i];
   }
 }
 
@@ -296,7 +390,7 @@ void createDatabase(OrbDatabase &db, const vector<vector<cv::Mat > > &features) 
   cout << "... done!" << endl;
 }
 
-int queryDatabase(OrbDatabase &db, const vector<vector<cv::Mat > > &features){
+int queryDatabase(OrbDatabase &db, const vector<cv::Mat >  &features){
   cout << "Database information: " << endl << db << endl;
 
   // and query the database
@@ -306,7 +400,7 @@ int queryDatabase(OrbDatabase &db, const vector<vector<cv::Mat > > &features){
   double highScore = 0;
   int position = 0;
 
-  db.query(features[0], ret,9000);
+  db.query(features, ret,9000);
   // ret[0] is always the same image in this case, because we added it to the
   // database. ret[1] is the second best match.
 
@@ -324,7 +418,7 @@ int queryDatabase(OrbDatabase &db, const vector<vector<cv::Mat > > &features){
 void showMatches( Mat img1,  std::vector<KeyPoint>& keypoints1,
                   Mat img2,  std::vector<KeyPoint>& keypoints2){
 
-  vector<vector<cv::Mat > > features;
+  vector<cv::Mat >  features;
   features.reserve(200);
   Mat match;
 
@@ -344,9 +438,6 @@ void showMatches( Mat img1,  std::vector<KeyPoint>& keypoints1,
          filteredMatches12.push_back( forward );
   }
 
-
-
-
   drawMatches(img1,keypoints1,img2,keypoints2, filteredMatches12, match);
   imshow("MATCHES", WINDOW_NORMAL);
   imshow("MATCHES",match);
@@ -362,49 +453,4 @@ Mat orbDescriptors(Mat image,vector<cv::KeyPoint> &keypoints,vector<vector<cv::M
     features.push_back(vector<cv::Mat >());
     changeStructure(descriptors, features.back());
     return descriptors;
-}
-// ----------------------------------------------------------------------------
-std::string base64_decode(std::string const& encoded_string) {
-    int in_len = encoded_string.size();
-    int i = 0;
-    int j = 0;
-    int in_ = 0;
-    unsigned char char_array_4[4], char_array_3[3];
-    std::string ret;
-
-    while (in_len-- && (encoded_string[in_] != '=') && is_base64(encoded_string[in_])) {
-        char_array_4[i++] = encoded_string[in_]; in_++;
-        if (i == 4) {
-            for (i = 0; i < 4; i++)
-                char_array_4[i] = base64_chars.find(char_array_4[i]);
-
-            char_array_3[0] = (char_array_4[0] << 2) + ((char_array_4[1] & 0x30) >> 4);
-            char_array_3[1] = ((char_array_4[1] & 0xf) << 4) + ((char_array_4[2] & 0x3c) >> 2);
-            char_array_3[2] = ((char_array_4[2] & 0x3) << 6) + char_array_4[3];
-
-            for (i = 0; (i < 3); i++)
-                ret += char_array_3[i];
-            i = 0;
-        }
-    }
-
-    if (i) {
-        for (j = i; j < 4; j++)
-            char_array_4[j] = 0;
-
-        for (j = 0; j < 4; j++)
-            char_array_4[j] = base64_chars.find(char_array_4[j]);
-
-        char_array_3[0] = (char_array_4[0] << 2) + ((char_array_4[1] & 0x30) >> 4);
-        char_array_3[1] = ((char_array_4[1] & 0xf) << 4) + ((char_array_4[2] & 0x3c) >> 2);
-        char_array_3[2] = ((char_array_4[2] & 0x3) << 6) + char_array_4[3];
-
-        for (j = 0; (j < i - 1); j++) ret += char_array_3[j];
-    }
-
-    return ret;
-}
-
-static inline bool is_base64(unsigned char c) {
-    return (isalnum(c) || (c == '+') || (c == '/'));
 }
