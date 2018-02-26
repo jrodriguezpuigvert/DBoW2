@@ -14,18 +14,372 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09ba20fd-df87-429e-9e46-16988c94c0bf" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/ws/1516116493784.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/include/DBoW2/Base64.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395629043.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395629298.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395629555.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395629810.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395630054.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395630296.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395630539.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395630774.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395631011.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395631661.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395631899.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395632137.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395632377.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395632632.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395632877.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395633126.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395633372.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395633622.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395633873.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395634130.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395634378.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395634633.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395634884.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395635137.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395635379.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395635629.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395635869.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395636113.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395636365.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395636608.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395636863.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395637109.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395637349.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395637590.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395637834.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395638080.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395638328.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395638574.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395638818.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395639063.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395639307.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395639556.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395639800.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395640047.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395640292.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395640539.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395640787.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395641036.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395641288.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395641537.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395641784.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395642041.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395642296.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395642550.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395642799.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395643058.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395643311.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395643569.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395643821.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395644074.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395644329.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395644575.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395646255.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395646504.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395646747.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395647002.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395647254.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395647516.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395647784.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395648053.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395648317.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395648574.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395648841.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395649100.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395649354.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395649615.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395649871.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395650136.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395650396.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395650657.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395650915.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395651168.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395651424.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395651684.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395651949.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395652216.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395652479.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395652747.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395653012.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395653277.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395653549.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395653824.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395654096.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395654379.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395654652.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395654923.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395655196.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395655468.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395655751.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395656031.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395656317.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395656594.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395656858.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395657124.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395657392.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395657662.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395657931.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395658209.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395658487.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395658753.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395659014.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395659271.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395659536.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395659800.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395660062.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395660331.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395660590.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395660847.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395661103.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395661356.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395661606.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395661851.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395662095.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395662334.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395662580.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395662839.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395663082.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395663329.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395663569.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395663819.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395664063.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395664306.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395664541.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395664781.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395665020.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395665255.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395665491.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395665729.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395665975.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395666237.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395666497.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395666756.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395667013.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395667263.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395667518.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395667773.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395668030.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395668286.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395668541.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395668796.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395669049.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395669308.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395669557.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395669818.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395670061.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395670311.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395670558.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395670805.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395671049.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395671299.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395671551.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395671802.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395672056.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395672309.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395672555.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395672801.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395673047.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395673290.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395673540.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395673787.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395674041.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395674301.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395674545.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395674793.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395675044.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395675289.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395675533.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395675776.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395676021.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395676272.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395676519.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395676767.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395677013.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395677255.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395677498.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395677743.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395677990.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395678242.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395678481.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395678723.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395678956.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395679196.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395679443.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395679693.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395679931.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395680176.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395680420.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395680663.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395680910.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395681164.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395681426.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395681692.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395681958.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395682221.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395682483.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395682746.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395683010.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395683274.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395683534.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395683793.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395684063.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395684335.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395684602.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395684873.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395685150.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395685425.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395685702.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395685974.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395686256.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395686549.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395686841.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395687132.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395687418.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395687697.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395687976.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395688249.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395688531.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395688797.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395689061.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395689329.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395689591.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395689851.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395690114.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395690364.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395690627.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395690887.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395691130.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395691369.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395691612.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395691861.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395692100.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395692342.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395692586.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395692825.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395693062.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395693301.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395693539.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395693780.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395694021.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395694261.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395694503.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395694743.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395694985.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395695234.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395695477.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395695723.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395695967.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395696215.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395696463.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395696713.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395696962.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395697215.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395697467.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395697719.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395697966.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395698215.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395698463.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395698712.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395698962.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395699222.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395699466.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395699718.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395699976.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395700239.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395700492.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395700742.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395700989.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395701235.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395701482.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395701733.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395701978.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395702229.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395702474.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395702715.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395702956.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395703199.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395703439.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395703677.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395703915.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395704153.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395704394.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395704635.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395704881.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395705135.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395705381.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395705627.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395705875.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395706129.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395706387.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395706654.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395706924.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395707188.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395707457.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395707724.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395708002.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395708283.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395708559.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395708834.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395709103.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395709379.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395709654.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395709929.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395710211.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395710514.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395710794.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395711056.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395711313.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395711576.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395711834.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395712095.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395712350.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395712610.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395712861.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395713122.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395713380.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395713638.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395713898.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395714152.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395714411.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395714666.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395714923.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395715194.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395715450.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395715709.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395715966.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395716223.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395716470.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395716720.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395716972.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395717221.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395717477.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395717739.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395718009.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395718277.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395718551.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395718830.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395719109.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395719380.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395719653.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395719925.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395720198.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395720472.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395720753.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395721028.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395721313.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395721594.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/1519395721866.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/orbdescrpitors/pointcloudtest.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/pointcloudtest.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/demo/dataset/test.txt" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/demo.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/demo.dir/CXX.includecache" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/demo.dir/demo/demo.cpp.o" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/demo.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/demo.dir/depend.internal" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/demo.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/demo.dir/depend.make" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/demo.dir/demo/demo.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/demo.dir/demo/demo.cpp.o" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/demo" afterPath="$PROJECT_DIR$/cmake-build-debug/demo" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/small_db.yml.gz" afterPath="$PROJECT_DIR$/cmake-build-debug/small_db.yml.gz" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/small_voc.yml.gz" afterPath="$PROJECT_DIR$/cmake-build-debug/small_voc.yml.gz" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/libDBoW2.dylib" afterPath="$PROJECT_DIR$/cmake-build-debug/libDBoW2.dylib" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/small_db.yml.gz" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/small_voc.yml.gz" afterPath="" />
       <change beforePath="$PROJECT_DIR$/demo/demo.cpp" afterPath="$PROJECT_DIR$/demo/demo.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -42,28 +396,26 @@
       <file leaf-file-name="demo.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo/demo.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5035">
-              <caret line="346" column="36" lean-forward="true" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="36" />
+            <state relative-caret-position="17">
+              <caret line="179" column="8" lean-forward="false" selection-start-line="179" selection-start-column="8" selection-end-line="183" selection-end-column="9" />
               <folding>
                 <element signature="e#154#173#0" expanded="true" />
                 <element signature="e#220#279#0" expanded="true" />
                 <element signature="e#348#375#0" expanded="true" />
                 <element signature="e#911#938#0" expanded="true" />
-                <element signature="e#10095#11198#0" expanded="false" />
-                <element signature="e#13296#13895#0" expanded="false" />
-                <element signature="e#13897#14938#0" expanded="false" />
-                <element signature="e#14939#15312#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vector" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
+      <file leaf-file-name="TemplatedVocabulary.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/DBoW2/TemplatedVocabulary.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="1512" column="0" lean-forward="false" selection-start-line="1512" selection-start-column="0" selection-end-line="1512" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="248">
+              <caret line="536" column="43" lean-forward="false" selection-start-line="536" selection-start-column="32" selection-end-line="536" selection-end-column="43" />
+              <folding>
+                <element signature="e#14291#14319#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,26 +424,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>DL</find>
-      <find>0.67</find>
-      <find>db</find>
-      <find>jpg</find>
-      <find>testSetPoints</find>
-      <find>error</find>
-      <find>make_pa</find>
-      <find>compile</find>
-      <find>boost</find>
-      <find>OpenCV_INCLUDE_DIRS</find>
-      <find>OPEN</find>
-      <find>add_lib</find>
-      <find>Thread</find>
-      <find>OpenSSL</find>
-      <find>Message</find>
-      <find>base</find>
-      <find>base64</find>
       <find>loadDescriptors</find>
       <find>1516116488313</find>
-      <find>192</find>
       <find>1516116493784</find>
       <find>Image:</find>
       <find>imshow</find>
@@ -101,7 +435,29 @@
       <find>changeStructure</find>
       <find>straux</find>
       <find>save</find>
+      <find>endpoint</find>
+      <find>echo</find>
+      <find>featuresDataSet</find>
+      <find>cout</find>
+      <find />
+      <find>b</find>
+      <find>0.51</find>
+      <find>mapImageEntry</find>
+      <find>0.5</find>
+      <find>Creating</find>
+      <find>imgData</find>
+      <find>server</find>
+      <find>1519296792887</find>
+      <find>1519296802857</find>
+      <find>192</find>
+      <find>T</find>
+      <find>0.3</find>
+      <find>queryDatabase</find>
+      <find>testVo</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/demo/dataset/22-02-18</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -110,7 +466,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/include/DBoW2/MapFrame.h" />
-        <option value="$PROJECT_DIR$/src/MapFrame.cpp" />
         <option value="$PROJECT_DIR$/demo/dataset/test_set/pointcloudtest.txt" />
         <option value="$PROJECT_DIR$/include/DBoW2/ws/server_wss.hpp" />
         <option value="$PROJECT_DIR$/include/DBoW2/ws/server_ws.hpp" />
@@ -119,6 +474,9 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/include/DBoW2/Base64.h" />
         <option value="$PROJECT_DIR$/demo/dataset/ws/pointcloudtest.txt" />
+        <option value="$PROJECT_DIR$/src/MapFrame.cpp" />
+        <option value="$PROJECT_DIR$/demo/dataset/pointcloudtest.txt" />
+        <option value="$PROJECT_DIR$/demo/dataset/test.txt" />
         <option value="$PROJECT_DIR$/demo/demo.cpp" />
       </list>
     </option>
@@ -130,11 +488,11 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1451" />
-    <option name="y" value="27" />
-    <option name="width" value="1994" />
-    <option name="height" value="1128" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1608" />
+    <option name="y" value="70" />
+    <option name="width" value="1790" />
+    <option name="height" value="1021" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -173,25 +531,7 @@
               <item name="DBoW2" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="DBoW2" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="dataset" type="462c0819:PsiDirectoryNode" />
-              <item name="ws" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DBoW2" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="DBoW2" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
               <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DBoW2" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="DBoW2" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DBoW2" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="DBoW2" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="DBoW2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DBoW2" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
@@ -210,18 +550,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/demo/dataset/orbdescrpitors" />
+      <recent name="$PROJECT_DIR$/demo/dataset/22-02-18" />
       <recent name="$PROJECT_DIR$/demo/dataset/ws" />
       <recent name="$PROJECT_DIR$/src/ws" />
       <recent name="$PROJECT_DIR$/include" />
-      <recent name="$PROJECT_DIR$/demo/images/test_data" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/demo/dataset/orbdescrpitors" />
+      <recent name="$PROJECT_DIR$/demo/dataset" />
       <recent name="$PROJECT_DIR$/demo/dataset/16-01-2018" />
       <recent name="$PROJECT_DIR$/include/DBoW2/ws" />
       <recent name="$PROJECT_DIR$/include/DBoW2" />
-      <recent name="$PROJECT_DIR$/demo/dataset" />
-      <recent name="$PROJECT_DIR$/cmake-build-debug/dependencies/install/lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -279,12 +619,14 @@
       <workItem from="1517393546185" duration="6991000" />
       <workItem from="1517865618096" duration="20655000" />
       <workItem from="1518261017268" duration="2904000" />
-      <workItem from="1518338157026" duration="67972000" />
+      <workItem from="1518338157026" duration="85149000" />
+      <workItem from="1519125702040" duration="36909000" />
+      <workItem from="1519375252262" duration="14061000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169182000" />
+    <option name="totallyTimeSpent" value="237329000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -296,19 +638,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="23" width="2048" height="1129" extended-state="6" />
+    <frame x="1608" y="70" width="1790" height="1021" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17020227" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27659574" sideWeight="0.39023188" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19771242" sideWeight="0.5936827" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31599775" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32829374" sideWeight="0.39023188" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27353266" sideWeight="0.5936827" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53578335" sideWeight="0.35273802" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281759" sideWeight="0.49804688" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42746615" sideWeight="0.86433154" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33462283" sideWeight="0.49804688" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1911447" sideWeight="0.86433154" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15183753" sideWeight="0.647262" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45182723" sideWeight="0.647262" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -352,15 +695,35 @@
           <line>944</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/include/DBoW2/ws/server_ws.hpp</url>
           <line>83</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/demo/demo.cpp</url>
+          <line>483</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/demo/demo.cpp</url>
+          <line>416</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/demo/demo.cpp</url>
+          <line>217</line>
+          <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/demo/demo.cpp</url>
+          <line>265</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/demo/demo.cpp</url>
-          <line>418</line>
-          <option name="timeStamp" value="65" />
+          <line>436</line>
+          <option name="timeStamp" value="143" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -373,7 +736,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="97" />
+      <option name="time" value="145" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
@@ -384,126 +747,20 @@
       </configuration>
     </watches-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>decodestr</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo/dataset/test_set/1516208125316.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/dataset/test_set/1516208125486.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/dataset/test_set/1516208125690.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/dataset/test_set/1516208125923.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/dataset/test_set/1516208126145.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/dataset/test_set/1516208126349.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/dataset/test_set/1516208126511.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/dataset/test_set/pointcloudtest.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5988">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/images/image0.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/images/image1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/images/image2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/images/image3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/fstream">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17952">
-          <caret line="1056" column="33" lean-forward="false" selection-start-line="1056" selection-start-column="33" selection-end-line="1056" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/DBoW2/BowVector.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="13" lean-forward="false" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/DBoW2/ws/server_wss.hpp" />
-    <entry file="file://$PROJECT_DIR$/include/DBoW2/ws/status_code.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="75" column="51" lean-forward="false" selection-start-line="75" selection-start-column="51" selection-end-line="75" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/DBoW2/FBrief.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/bin/cmake/share/cmake-3.9/Modules/FindBoost.cmake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="1522" column="0" lean-forward="false" selection-start-line="1522" selection-start-column="0" selection-end-line="1522" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/DBoW2/ws/utility.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="9" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/memory">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="4166" column="17" lean-forward="false" selection-start-line="4166" selection-start-column="17" selection-end-line="4166" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/include/opencv2/xfeatures2d.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15538">
           <caret line="914" column="32" lean-forward="false" selection-start-line="914" selection-start-column="32" selection-end-line="914" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -512,27 +769,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/DBoW2/TemplatedDatabase.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="568" column="40" lean-forward="false" selection-start-line="568" selection-start-column="40" selection-end-line="568" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FORB.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo/dataset/16-01-2018/pointcloudtest.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="2908" column="19" lean-forward="false" selection-start-line="2763" selection-start-column="0" selection-end-line="2908" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -540,7 +780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="165" column="17" lean-forward="false" selection-start-line="165" selection-start-column="17" selection-end-line="165" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -548,25 +787,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="388" column="18" lean-forward="false" selection-start-line="388" selection-start-column="18" selection-end-line="388" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/dataset/ws/1516116493952.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/dataset/ws/1516116493860.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/dataset/ws/1516116493713.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/ws/1516116493952.jpg" />
+    <entry file="file://$PROJECT_DIR$/demo/dataset/ws/1516116493860.jpg" />
+    <entry file="file://$PROJECT_DIR$/demo/dataset/ws/1516116493713.jpg" />
     <entry file="file://$PROJECT_DIR$/demo/dataset/ws/1516116493784.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -576,7 +802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="188" column="43" lean-forward="false" selection-start-line="188" selection-start-column="43" selection-end-line="188" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -592,18 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="603">
           <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/DBoW2/ws/server_ws.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1625">
-          <caret line="64" column="84" lean-forward="true" selection-start-line="64" selection-start-column="84" selection-end-line="64" selection-end-column="84" />
-          <folding>
-            <element signature="e#45#66#0" expanded="false" />
-            <element signature="e#3287#3305#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -611,7 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="4290" column="0" lean-forward="false" selection-start-line="4290" selection-start-column="0" selection-end-line="4290" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -619,31 +831,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="531" column="0" lean-forward="false" selection-start-line="531" selection-start-column="0" selection-end-line="531" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/DBoW2/Base64.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/include/DBoW2/Base64.cpp" />
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/DBoW2/DBoW2.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -651,7 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-58">
           <caret line="102" column="25" lean-forward="true" selection-start-line="102" selection-start-column="25" selection-end-line="102" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -659,7 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2845">
           <caret line="235" column="10" lean-forward="false" selection-start-line="235" selection-start-column="10" selection-end-line="235" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -667,7 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -675,7 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
           <caret line="2997" column="25" lean-forward="false" selection-start-line="2997" selection-start-column="25" selection-end-line="2997" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -683,7 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="182" column="41" lean-forward="false" selection-start-line="182" selection-start-column="41" selection-end-line="182" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -699,47 +889,188 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="41" column="19" lean-forward="false" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/DBoW2/ws/server_ws.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="773" column="4" lean-forward="false" selection-start-line="773" selection-start-column="4" selection-end-line="773" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/string">
+    <entry file="file://$PROJECT_DIR$/include/DBoW2/DBoW2.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="2996" column="80" lean-forward="false" selection-start-line="2996" selection-start-column="77" selection-end-line="2996" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/include/opencv2/core/mat.inl.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="708" column="0" lean-forward="false" selection-start-line="708" selection-start-column="0" selection-end-line="708" selection-end-column="0" />
+        <state relative-caret-position="448">
+          <caret line="65" column="2" lean-forward="false" selection-start-line="65" selection-start-column="2" selection-end-line="65" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="221">
           <caret line="1512" column="0" lean-forward="false" selection-start-line="1512" selection-start-column="0" selection-end-line="1512" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/small_db.yml.gz" />
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/small_voc.yml.gz" />
+    <entry file="file://$PROJECT_DIR$/src/MapFrame.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="72" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/DBoW2/TemplatedDatabase.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-482">
+          <caret line="617" column="40" lean-forward="false" selection-start-line="617" selection-start-column="40" selection-end-line="617" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/21-02-18/1519208847771.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/21-02-18/1519208847839.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/21-02-18/1519208847908.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/21-02-18/1519208847976.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/21-02-18/1519208848065.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/21-02-18/1519208848113.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/21-02-18/1519208848189.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/21-02-18/1519208848242.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/21-02-18/1519208848307.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/21-02-18/1519208848387.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/thread">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="423" column="0" lean-forward="false" selection-start-line="423" selection-start-column="0" selection-end-line="423" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/fstream">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="1048" column="33" lean-forward="false" selection-start-line="1048" selection-start-column="33" selection-end-line="1048" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/string">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="1467" column="43" lean-forward="false" selection-start-line="1467" selection-start-column="43" selection-end-line="1467" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/22-02-18/1519296792887.jpg" />
+    <entry file="file://$PROJECT_DIR$/src/FORB.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/include/opencv2/core/mat.inl.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="402" column="0" lean-forward="false" selection-start-line="402" selection-start-column="0" selection-end-line="402" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/pointcloudtest.txt">
+      <provider editor-type-id="LargeFileEditor">
+        <state relative-caret-position="155">
+          <caret line="21451" column="20" lean-forward="true" selection-start-line="21451" selection-start-column="20" selection-end-line="21451" selection-end-column="20" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7701016">
+          <caret line="10636" column="0" lean-forward="false" selection-start-line="10636" selection-start-column="0" selection-end-line="10636" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/orbdescrpitors/pointcloudtest.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176053">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/dataset/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/DBoW2/TemplatedVocabulary.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="536" column="43" lean-forward="false" selection-start-line="536" selection-start-column="32" selection-end-line="536" selection-end-column="43" />
+          <folding>
+            <element signature="e#14291#14319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/demo/demo.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5035">
-          <caret line="346" column="36" lean-forward="true" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="36" />
+        <state relative-caret-position="17">
+          <caret line="179" column="8" lean-forward="false" selection-start-line="179" selection-start-column="8" selection-end-line="183" selection-end-column="9" />
           <folding>
             <element signature="e#154#173#0" expanded="true" />
             <element signature="e#220#279#0" expanded="true" />
             <element signature="e#348#375#0" expanded="true" />
             <element signature="e#911#938#0" expanded="true" />
-            <element signature="e#10095#11198#0" expanded="false" />
-            <element signature="e#13296#13895#0" expanded="false" />
-            <element signature="e#13897#14938#0" expanded="false" />
-            <element signature="e#14939#15312#0" expanded="false" />
           </folding>
         </state>
       </provider>

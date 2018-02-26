@@ -52,16 +52,21 @@ void showMatches( Mat img1,  std::vector<KeyPoint>& keypoints1,
                   Mat img2,  std::vector<KeyPoint>& keypoints2);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 std::string decode64(const std::string &val);
-void createDatabase(OrbDatabase &db, const vector<vector<cv::Mat > > &features) ;
+void createDatabase(OrbDatabase &db, const vector<cv::Mat > &features) ;
 int queryDatabase(OrbDatabase &db, const vector<cv::Mat >  &features) ;
 
-void loadFeatures(ifstream &infile, vector<Mat >  &features, string datasetPath, int nimages,std::map<int, MapFrame> &mapImageEntry);
+void loadFeatures(ifstream &infile, vector<vector<Mat >>  &features, string datasetPath, int nimages,std::map<int, MapFrame> &mapImageEntry);
 
 Mat orbDescriptors(Mat image,vector<cv::KeyPoint> &keypoints,vector<vector<cv::Mat > > &features);
 // number of training images
 const int NIMAGES = 1508;
 const int TESTNIMAGES = 1189;
 std::string string_to_hex(const std::string& input);
+
+void loadFeaturesFromBase64(ifstream &dataSetBase64,vector< vector<cv::Mat >> &featuresDataBase64);
+
+void parseDataSet(ifstream &dataSetBase64,vector< vector<cv::Mat >> &featuresDataBase64,std::map<int, MapFrame> &mapImageEntry);
+void previoustest(ifstream &dataSet,string str);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 void wait()
@@ -69,12 +74,10 @@ void wait()
   cout << endl << "Press enter to continue" << endl;
   getchar();
 }
-static const std::string base64_chars =
-                "abcdef"
-                "0123456789";
 // ----------------------------------------------------------------------------
+static  std::map<int, MapFrame> mapImageDataSet;
+static int currentImageId=-1,lastImageId=-1;
 int main(void)
-
 {
   std::map<int, MapFrame> mapImageDataSet;
   std::map<int, MapFrame> mapImageTestSet;
@@ -87,23 +90,31 @@ int main(void)
   Mat imgTest,imgData,mat1;
   // load the vocabulary from disk
 // CREATE
-//  OrbVocabulary voc("small_voc.yml.gz");
-//
-//  OrbDatabase db(voc, false, 0);
-//    testVocCreation(featuresDataSet);
-//    createDatabase(db,featuresDataSet);
-    OrbDatabase db("small_db.yml.gz");
 
-//  loadFeatures(dataSetPoints, featuresDataSet,dataSetImages, NIMAGES, mapImageDataSet);
+//    featuresDataSet.reserve(NIMAGES);
+//    cout << "Loading Features" << endl;
+//    loadFeatures(dataSetPoints, featuresDataSet,dataSetImages, NIMAGES, mapImageDataSet);
+//    cout << "Creating Vocabulary" << endl;
+//    testVocCreation(featuresDataSet);
 //
+//    OrbVocabulary voc("small_voc.yml.gz");
+//    OrbDatabase db(voc, false, 0);
+//    cout << "Creating Database" << endl;
 //
+//    cout << "Inserting Items in Database" << endl;
+//
+//    createDatabase(db,featuresData);
+//    cout << "Saving Database" << endl;
+//
+//    db.save("small_db.yml.gz");
+
 //  loadFeatures(testSetPoints, featuresTestSet,testSetImages ,4,mapImageTestSet);
-//
-//  for(int i = 0; i<mapImageTestSet.size();i++) {
-//    vector<vector<cv::Mat > > foundFeatures;
-//    foundFeatures.reserve(20);
-//    imgTest = imread(testSetImages + mapImageTestSet[i].imageName + jpg, IMREAD_GRAYSCALE);
-//    loadDescriptors(foundFeatures,mapImageTestSet[i].keyPoints,imgTest);
+
+//  for(int i = 0; i<mapImageDataSet.size();i++) {
+//    vector<cv::Mat >  foundFeatures;
+//    foundFeatures.reserve(1);
+//    imgTest = imread(dataSetImages + mapImageDataSet[i].imageName + jpg, IMREAD_GRAYSCALE);
+//    loadDescriptors(foundFeatures,mapImageDataSet[i].keyPoints,imgTest);
 ////    orbDescriptors(imgTest,mapImageTestSet[i].keyPoints,foundFeatures);
 //    int result = queryDatabase(db,foundFeatures);
 ////    if(result != -1){
@@ -114,117 +125,62 @@ int main(void)
 //  }
   cout << "Test Completed" << endl;
 
-//    db.save("small_db.yml.gz");
   cout << endl;
     cout << "***************************************" << endl;
 
     WsServer server;
-    server.config.address = "192.168.20.65";
+    server.config.address = "192.168.96.240";
     server.config.port = 8000;
     auto &echo = server.endpoint["/"];
 
     echo.on_message = [](shared_ptr<WsServer::Connection> connection, shared_ptr<WsServer::Message> message) {
 
-        cout << "ON_MESSAGE "<<" Size: " << message->size()<< endl;
+//        cout << "ON_MESSAGE "<<" Size: " << message->size()<< endl;
         auto message_str = message->string();
-        cout << "Server: Message received: \"" << message_str << "\" from " << connection.get() << endl;
+        string ts,parsedString;
+//        cout << "Server: Message received: \"" << message_str << "\" from " << connection.get() << endl;
 
-        cout << "Server: Sending message \"" << message_str << "\" to " << connection.get() << endl;
-        cout <<"ON_MESSAGE "<< " Decoding SimpleWeb::Crypto::Base64::decode"<< endl;
-
-//        std::string simpleWebstr =  SimpleWeb::Crypto::Base64::decode(message_str);
-////        cout <<"ON_MESSAGE Message: "<< simpleWebstr<< endl;
-//        cout <<"ON_MESSAGE Length: "<< simpleWebstr.length()<< endl;
-//        cout <<"ON_MESSAGE HEX: "<< string_to_hex(simpleWebstr)<< endl;
-
-        cout <<"ON_MESSAGE "<< " Decoding std::string decode64"<< endl;
+//        cout << "Server: Sending message \"" << message_str << "\" to " << connection.get() << endl;
+//        cout <<"ON_MESSAGE "<< " Decoding std::string decode64"<< endl;
 
         std::string decodestr =  boost::beast::detail::base64_decode((message_str));
-//        cout <<"ON_MESSAGE Message: "<< decodestr<< endl;
-        cout <<"ON_MESSAGE Length: "<< decodestr.length()<< endl;
-//        cout <<"ON_MESSAGE HEX: "<< string_to_hex(decodestr)<< endl;
 
-
-//        cout <<"ON_MESSAGE "<< " Decoding Base64::Decode "<< endl;
-//        std::string str;
-//        Base64::Decode(message_str,&str);
-//        cout <<"ON_MESSAGE Message: "<<str<< endl;
-//        cout <<"ON_MESSAGE Length: "<< str.length()<< endl;
-//        cout <<"ON_MESSAGE HEX: "<< string_to_hex(str)<< endl;
-
-        cout <<"ON_MESSAGE "<< " Transforming mat into FEATURES * 32 "<< endl;
+//        cout <<"ON_MESSAGE Length: "<< decodestr.length()<< endl;
 //
+//        cout <<"ON_MESSAGE "<< " Transforming mat into FEATURES * 32 "<< endl;
+
         vector<cv::Mat >  foundFeatures;
         foundFeatures.reserve(1);
         int index = 0;
-        foundFeatures.resize(decodestr.length()/32);
-        cout<<foundFeatures.at(0)<<endl;
+        foundFeatures.resize(decodestr.length()/32+1);
+//        cout<<foundFeatures.at(0)<<endl;
         for (size_t i = 0; i < decodestr.length() ;i = i+32)
         {
-            std::string straux = decodestr.substr(i,i+32);
+            std::string straux = decodestr.substr(i,32);
             Mat aux(1, 32, CV_8UC1);
             std::vector<int> vectordata(straux.begin(),straux.end());
-            for (size_t j = 0; j < 32; j++)
+//            cout<<"Straux Length"<<straux.length()<<" "<<endl;
+//            cout<<"Straux "<<straux<<" "<<endl;
+//            cout<<"vectordata Length"<<vectordata.size()<<endl;
+
+            for (size_t j = 0; j < vectordata.size()-1; j++)
             {
                 aux.at<uchar>(0, j) = vectordata.at(j);
             }
+
             foundFeatures.at(index) = aux.row(0);
             index++;
+            straux.clear();
+            vectordata.clear();
         }
 
-        cout<<endl<<"MAT SIZE: "<<foundFeatures.size()<<endl;
+        OrbDatabase db2("ls_db.yml.gz");
+        currentImageId = queryDatabase(db2, foundFeatures);
 
-        for(int j = 0;j<foundFeatures.size();j++){
-            Mat aux = foundFeatures.at(j);
-
-            cout<<"Col"<<aux.cols<<" "<<"Rows"<<aux.rows<<endl;
-            cout<<"MAT: "<<aux<<endl;
-        }
-
-
-//        for (int i = 0; i < decodestr.length() ; i= i++) {
-//
-//            foundFeatures[j] = aux;
-//            std::vector<int> vectordata(straux.begin(),straux.end());
-//            Mat aux = Mat(vectordata,CV_8UC1);
-//            cout<<"Col"<<aux.cols<<" "<<"Rows"<<aux.rows<<endl;
-//            cout<< aux<<endl;
-//            foundFeatures[j] = aux;
-//            j++;
-//        }
-
-        OrbDatabase db2("small_db.yml.gz");
-
-//        db2.add(foundFeatures);
-//        db2.save("small_db.yml.gz");
-        cout <<"ON_MESSAGE "<< "Testing received features against our DB"<< endl;
-        queryDatabase(db2, foundFeatures);
-
-        std::map<int, MapFrame> mapImageTestSet;
-        std::ifstream testSetPoints("../demo/dataset/ws/pointcloudtest.txt");
-        vector<cv::Mat >  featuresTestSet;
-        string testSetImages("../demo/dataset/ws/");
-        string jpg(".jpg");
-        Mat imgTest;
-
-        loadFeatures(testSetPoints, featuresTestSet,testSetImages ,1,mapImageTestSet);
-
-      for(int i = 0; i<mapImageTestSet.size();i++) {
-            vector<cv::Mat >  foundFeatures1;
-            foundFeatures1.reserve(1);
-            imgTest = imread(testSetImages + mapImageTestSet[i].imageName + jpg, IMREAD_GRAYSCALE);
-            loadDescriptors(foundFeatures1,mapImageTestSet[i].keyPoints,imgTest);
-//          cout<<endl<<"MAT SIZE: "<<foundFeatures1.size()<<endl;
-//
-//          for(int j = 0;j<foundFeatures1.size();j++){
-//              Mat aux = foundFeatures1.at(j);
-//
-//              cout<<"Col"<<aux.cols<<" "<<"Rows"<<aux.rows<<endl;
-//              cout<<"MAT: "<<aux<<endl;
-//            }
-
-
-          int result = queryDatabase(db2,foundFeatures1);
+        if(currentImageId !=-1){
+            MapFrame mapFrame =  mapImageDataSet[currentImageId];
+            cout<<mapFrame.imageName<<endl;
+            currentImageId = -1;
         }
 
     };
@@ -248,30 +204,161 @@ int main(void)
         // Start WS-server
         server.start();
     });
-
     // Wait for server to start so that the client can connect
     this_thread::sleep_for(chrono::seconds(1));
 
     server_thread.join();
+
+
     return 0;
 }
+void previoustest(ifstream &dataSet,string str){
+    string line,ts;
 
-std::string string_to_hex(const std::string& input)
-{
-    static const char* const lut = "0123456789ABCDEF";
-    size_t len = input.length();
+    while (getline(dataSet, line)) {
 
-    std::string output;
-    output.reserve(2 * len);
-    for (size_t i = 0; i < len; ++i)
-    {
-        const unsigned char c = input[i];
-        output.push_back(lut[c >> 4]);
-        output.push_back(lut[c & 15]);
+            string jpg(".jpg");
+            cout<<str<<line<<endl;
+            Mat img1 = imread(str + line + jpg, IMREAD_GRAYSCALE);
+            namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
+            imshow( "Display window", img1 );                   // Show our image inside it.
+
+            waitKey(0);
+
     }
-    return output;
 }
-void loadFeatures(ifstream &infile, vector<Mat >  &features, string datasetPath, int nimages,std::map<int, MapFrame> &mapImageEntry) {
+
+void parseDataSet(ifstream &dataSetBase64,vector< vector<cv::Mat >> &featuresDataBase64,std::map<int, MapFrame> &mapImageEntry){
+    std::string ts;
+    string line;
+    string message_str;
+    char command;
+
+    vector<cv::Mat >  foundFeatures;
+    int imageCounter=0;
+    while (getline(dataSetBase64, line)) {
+        stringstream iss(line);
+        //Check Command
+        switch (line[0]){
+            case 'b':
+                if(iss>>command>>message_str){
+//                    cout << "BASE64:" << message_str<< endl;
+                    std::string decodestr =  boost::beast::detail::base64_decode((message_str));
+
+                    foundFeatures.reserve(1);
+                    int index = 0;
+                    foundFeatures.resize(decodestr.length()/32+1);
+//        cout<<foundFeatures.at(0)<<endl;
+                    for (size_t i = 0; i < decodestr.length() ;i = i+32)
+                    {
+                        std::string straux = decodestr.substr(i,32);
+                        Mat aux(1, 32, CV_8UC1);
+                        std::vector<int> vectordata(straux.begin(),straux.end());
+//            cout<<"Straux Length"<<straux.length()<<" "<<endl;
+//            cout<<"Straux "<<straux<<" "<<endl;
+//            cout<<"vectordata Length"<<vectordata.size()<<endl;
+
+                        for (size_t j = 0; j < vectordata.size()-1; j++)
+                        {
+                            aux.at<uchar>(0, j) = vectordata.at(j);
+                        }
+
+                        foundFeatures.at(index) = aux.row(0);
+                        index++;
+                        straux.clear();
+                        vectordata.clear();
+
+                    }
+                    featuresDataBase64.push_back(foundFeatures);
+                }else{
+                    break;
+                }
+
+                break;
+            case 'p':
+                break;
+            case 's':
+
+                break;
+            case 't':
+                if(iss>>command>>ts){
+                    MapFrame mapFrame;
+                    mapFrame.imageName = ts;
+                    mapImageEntry.insert(make_pair(imageCounter,mapFrame) );
+                    imageCounter++;
+                }
+                break;
+            default:
+                break;
+        }
+
+    }
+}
+
+void loadFeaturesFromBase64(ifstream &dataSetBase64,vector< vector<cv::Mat >> &featuresDataBase64){
+    std::string ts;
+    string line;
+    string message_str;
+    char command;
+    vector<KeyPoint> kpts1;
+    Mat out0,out1,desc1,desc2,match;
+    vector<cv::Mat >  foundFeatures;
+    float x, y;
+    int i=0 ;
+
+    while (getline(dataSetBase64, line)) {
+
+//        Mat img1;
+        stringstream iss(line);
+
+        if(iss >> ts){
+//
+//            string jpg(".jpg");
+//            img1 = imread(datasetPath + ts + jpg, IMREAD_GRAYSCALE);
+            cout << "Image:" << ts << " -> "<<i << endl;
+            while (getline(dataSetBase64, line)){
+                stringstream iss(line);
+                if(iss>>command>>message_str){
+//                    cout << "BASE64:" << message_str<< endl;
+
+                    std::string decodestr =  boost::beast::detail::base64_decode((message_str));
+
+                    foundFeatures.reserve(1);
+                    int index = 0;
+                    foundFeatures.resize(decodestr.length()/32+1);
+//        cout<<foundFeatures.at(0)<<endl;
+                    for (size_t i = 0; i < decodestr.length() ;i = i+32)
+                    {
+                        std::string straux = decodestr.substr(i,32);
+                        Mat aux(1, 32, CV_8UC1);
+                        std::vector<int> vectordata(straux.begin(),straux.end());
+//            cout<<"Straux Length"<<straux.length()<<" "<<endl;
+//            cout<<"Straux "<<straux<<" "<<endl;
+//            cout<<"vectordata Length"<<vectordata.size()<<endl;
+
+                        for (size_t j = 0; j < vectordata.size()-1; j++)
+                        {
+                            aux.at<uchar>(0, j) = vectordata.at(j);
+                        }
+
+                        foundFeatures.at(index) = aux.row(0);
+                        index++;
+                        straux.clear();
+                        vectordata.clear();
+                    }
+                }else{
+                    break;
+                }
+            }
+            i++;
+        }
+        featuresDataBase64.push_back(foundFeatures);
+    }
+}
+
+
+
+void loadFeatures(ifstream &infile, vector<vector<Mat >>  &features, string datasetPath, int nimages,std::map<int, MapFrame> &mapImageEntry) {
   std::string ts;
   std:string line;
   vector<KeyPoint> kpts1;
@@ -299,11 +386,12 @@ void loadFeatures(ifstream &infile, vector<Mat >  &features, string datasetPath,
           kpts1.push_back(kp1);
         }else{
           break;
+
         }
       }
 
-      desc1= loadDescriptors(features,kpts1,img1);
-//      desc1= orbDescriptors(img1,kpts1,features);
+//      desc1= loadDescriptors(features,kpts1,img1);
+      desc1= orbDescriptors(img1,kpts1,features);
       MapFrame mapFrame;
       mapFrame.keyPoints = kpts1;
       mapFrame.imageName = ts;
@@ -318,7 +406,7 @@ Mat loadDescriptors(vector<cv::Mat  > &features,  vector<KeyPoint> &keypoints, M
   cv::Ptr<cv::ORB> orb = cv::ORB::create();
   Mat descriptors;
   orb->compute(image,keypoints,descriptors);
-    cout<<"DESCRIPTOR!:"<<descriptors<<endl;
+//    cout<<"DESCRIPTOR!:"<<descriptors<<endl;
   changeStructure(descriptors, features);
   return descriptors;
 }
@@ -332,7 +420,7 @@ void changeStructure(const cv::Mat &plain, vector<cv::Mat> &out)
   for(int i = 0; i < plain.rows; ++i)
   {
     out[i] = plain.row(i);
-      cout<<out[i];
+//      cout<<out[i];
   }
 }
 
@@ -341,7 +429,7 @@ void changeStructure(const cv::Mat &plain, vector<cv::Mat> &out)
 void testVocCreation(const vector<vector<cv::Mat > > &features)
 {
   // branching factor and depth levels
-  const int k = 9;
+  const int k = 9 ;
   const int L = 3;
   const WeightingType weight = TF_IDF;
   const ScoringType score = L1_NORM;
@@ -355,64 +443,41 @@ void testVocCreation(const vector<vector<cv::Mat > > &features)
 
   cout << "Vocabulary information: " << endl
        << voc << endl << endl;
-
-  // lets do something with this vocabulary
-  cout << "Matching images against themselves (0 low, 1 high): " << endl;
-  //  BowVector v1, v2;
-  //  for(int i = 0; i < NIMAGES; i++)
-  //  {
-  //    voc.transform(features[i], v1);
-  //    for(int j = 0; j < NIMAGES; j++)
-  //    {
-  //      voc.transform(features[j], v2);
-  //
-  //      double score = voc.score(v1, v2);
-  //      cout << "Image " << i << " vs Image " << j << ": " << score << endl;
-  //    }
-  //  }
-
   // save the vocabulary to disk
   cout << endl << "Saving vocabulary..." << endl;
-  voc.save("small_voc.yml.gz");
+  voc.save("ls_voc.yml.gz");
   cout << "Done" << endl;
 }
 
 // ----------------------------------------------------------------------------
 
-void createDatabase(OrbDatabase &db, const vector<vector<cv::Mat > > &features) {
-  cout << "Creating a small database..." << endl;
-
-  // add images to the database
-  for (int i = 0; i < NIMAGES; i++) {
-    db.add(features[i]);
-  }
-
-  cout << "... done!" << endl;
-}
-
 int queryDatabase(OrbDatabase &db, const vector<cv::Mat >  &features){
-  cout << "Database information: " << endl << db << endl;
+//  cout << "Database information: " << endl << db << endl;
 
   // and query the database
-  cout << "Querying the database: " << endl;
+//  cout << "Querying the database: " << endl;
 
   QueryResults ret;
   double highScore = 0;
   int position = 0;
 
-  db.query(features, ret,9000);
+  db.query(features, ret,120);
   // ret[0] is always the same image in this case, because we added it to the
   // database. ret[1] is the second best match.
 
-  cout <<"Image: "<<ret[1].Id<< " Score: "<< ret[1].Score;
+  if(ret.size()>0){
+//      cout <<"Image 0: "<<ret[0].Id<< " Score: "<< ret[0].Score<<endl;
+//      cout <<"Image 1: "<<ret[1].Id<< " Score: "<< ret[1].Score<<endl;
+//      cout <<"Image 2: "<<ret[2].Id<< " Score: "<< ret[2].Score<<endl;
+      cout<<endl;
+      if(ret[0].Score > 0.3){
+          return ret[0].Id;
+      }else{
+          return -1;
+      }
+  }
 
-    cout << endl;
-    if(ret[1].Score > 0.4){
 
-        return ret[1].Id;
-    } else{
-        return -1;
-    }
 }
 
 void showMatches( Mat img1,  std::vector<KeyPoint>& keypoints1,
@@ -449,7 +514,6 @@ Mat orbDescriptors(Mat image,vector<cv::KeyPoint> &keypoints,vector<vector<cv::M
     cv::Mat descriptors;
     cv::Ptr<cv::ORB> orb = cv::ORB::create();
     orb->detectAndCompute(image, mask, keypoints, descriptors);
-
     features.push_back(vector<cv::Mat >());
     changeStructure(descriptors, features.back());
     return descriptors;
