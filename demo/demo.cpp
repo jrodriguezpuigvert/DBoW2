@@ -46,7 +46,7 @@ using WsServer = SimpleWeb::SocketServer<SimpleWeb::WS>;
 std::string base64_decode(std::string const& encoded_string);
 static inline bool is_base64(unsigned char c);
 void changeStructure(const cv::Mat &plain, vector<cv::Mat> &out);
-void testVocCreation(const vector<vector<cv::Mat > > &features);
+void testVocCreation(const vector<vector<cv::Mat > > &features, string vocname);
 Mat loadDescriptors(vector<cv::Mat >  &features,  vector<KeyPoint> &keypoints, Mat image);
 void showMatches( Mat img1,  std::vector<KeyPoint>& keypoints1,
                   Mat img2,  std::vector<KeyPoint>& keypoints2);
@@ -77,52 +77,45 @@ void wait()
 // ----------------------------------------------------------------------------
 static  std::map<int, MapFrame> mapImageDataSet;
 static int currentImageId=-1,lastImageId=-1;
+static OrbDatabase db2("ls_db_voc_2_3.yml.gz");
 int main(void)
 {
-  std::map<int, MapFrame> mapImageDataSet;
   std::map<int, MapFrame> mapImageTestSet;
-  std::ifstream dataSetPoints("../demo/dataset/16-01-2018/pointcloudtest.txt");
+  std::ifstream dataSetPoints("../demo/dataset/pointcloudtest.txt");
   std::ifstream testSetPoints("../demo/dataset/16-01-2018/pointcloudtest.txt");
   vector<vector<cv::Mat > > featuresDataSet,featuresTestSet;
   string dataSetImages("../demo/dataset/16-01-2018/");
   string testSetImages("../demo/dataset/16-01-2018/");
   string jpg(".jpg");
   Mat imgTest,imgData,mat1;
+
   // load the vocabulary from disk
 // CREATE
 
 //    featuresDataSet.reserve(NIMAGES);
 //    cout << "Loading Features" << endl;
-//    loadFeatures(dataSetPoints, featuresDataSet,dataSetImages, NIMAGES, mapImageDataSet);
-//    cout << "Creating Vocabulary" << endl;
-//    testVocCreation(featuresDataSet);
+
+
+    parseDataSet(dataSetPoints, featuresDataSet, mapImageDataSet);
+    cout << "Creating Vocabulary" <<featuresDataSet.size()<< endl;
+//    testVocCreation(featuresDataSet,"ls_voc_2_3.yml.gz");
 //
-//    OrbVocabulary voc("small_voc.yml.gz");
-//    OrbDatabase db(voc, false, 0);
+//    OrbVocabulary voc("ls_voc_2_3.yml.gz");    cout << "Creating Database" << endl;
+//
+//    OrbDatabase db(voc,false,0);
 //    cout << "Creating Database" << endl;
-//
 //    cout << "Inserting Items in Database" << endl;
+//    for(int i = 0;i< featuresDataSet.size();i++){
+//        db.add(featuresDataSet[i]);
+//    }
 //
-//    createDatabase(db,featuresData);
+//    db.save("ls_db_voc_2_3.yml.gz");
+
+//    for(int i = 0;i< featuresDataSet.size();i++){
+//        queryDatabase(db, featuresDataSet[i]);
+//    }
 //    cout << "Saving Database" << endl;
-//
-//    db.save("small_db.yml.gz");
 
-//  loadFeatures(testSetPoints, featuresTestSet,testSetImages ,4,mapImageTestSet);
-
-//  for(int i = 0; i<mapImageDataSet.size();i++) {
-//    vector<cv::Mat >  foundFeatures;
-//    foundFeatures.reserve(1);
-//    imgTest = imread(dataSetImages + mapImageDataSet[i].imageName + jpg, IMREAD_GRAYSCALE);
-//    loadDescriptors(foundFeatures,mapImageDataSet[i].keyPoints,imgTest);
-////    orbDescriptors(imgTest,mapImageTestSet[i].keyPoints,foundFeatures);
-//    int result = queryDatabase(db,foundFeatures);
-////    if(result != -1){
-////        MapFrame mapFrame =  mapImageDataSet[result];
-////        imgData = imread(dataSetImages + mapImageDataSet[result].imageName + jpg, IMREAD_GRAYSCALE);
-//////        showMatches(imgTest,mapImageTestSet[i].keyPoints,imgData,mapImageDataSet[result].keyPoints);
-////    }
-//  }
   cout << "Test Completed" << endl;
 
   cout << endl;
@@ -174,14 +167,28 @@ int main(void)
             vectordata.clear();
         }
 
-        OrbDatabase db2("ls_db.yml.gz");
         currentImageId = queryDatabase(db2, foundFeatures);
 
+        auto send_stream = make_shared<WsServer::SendStream>();
         if(currentImageId !=-1){
             MapFrame mapFrame =  mapImageDataSet[currentImageId];
             cout<<mapFrame.imageName<<endl;
-            currentImageId = -1;
+            *send_stream << mapFrame.imageName;
+        }else{
+            *send_stream << -1;
+
         }
+
+        // connection->send is an asynchronous function
+        connection->send(send_stream, [](const SimpleWeb::error_code &ec) {
+            if(ec) {
+                cout << "Server: Error sending message. " <<
+                     // See http://www.boost.org/doc/libs/1_55_0/doc/html/boost_asio/reference.html, Error Codes for error code meanings
+                     "Error: " << ec << ", error message: " << ec.message() << endl;
+            }
+        });
+        currentImageId = -1;
+
 
     };
 
@@ -426,10 +433,10 @@ void changeStructure(const cv::Mat &plain, vector<cv::Mat> &out)
 
 // ----------------------------------------------------------------------------
 
-void testVocCreation(const vector<vector<cv::Mat > > &features)
+void testVocCreation(const vector<vector<cv::Mat > > &features, string vocname)
 {
   // branching factor and depth levels
-  const int k = 9 ;
+  const int k = 9;
   const int L = 3;
   const WeightingType weight = TF_IDF;
   const ScoringType score = L1_NORM;
@@ -445,7 +452,7 @@ void testVocCreation(const vector<vector<cv::Mat > > &features)
        << voc << endl << endl;
   // save the vocabulary to disk
   cout << endl << "Saving vocabulary..." << endl;
-  voc.save("ls_voc.yml.gz");
+  voc.save(vocname);
   cout << "Done" << endl;
 }
 
@@ -466,9 +473,9 @@ int queryDatabase(OrbDatabase &db, const vector<cv::Mat >  &features){
   // database. ret[1] is the second best match.
 
   if(ret.size()>0){
-//      cout <<"Image 0: "<<ret[0].Id<< " Score: "<< ret[0].Score<<endl;
-//      cout <<"Image 1: "<<ret[1].Id<< " Score: "<< ret[1].Score<<endl;
-//      cout <<"Image 2: "<<ret[2].Id<< " Score: "<< ret[2].Score<<endl;
+      cout <<"Image 0: "<<ret[0].Id<< " Score: "<< ret[0].Score<<endl;
+      cout <<"Image 1: "<<ret[1].Id<< " Score: "<< ret[1].Score<<endl;
+      cout <<"Image 2: "<<ret[2].Id<< " Score: "<< ret[2].Score<<endl;
       cout<<endl;
       if(ret[0].Score > 0.3){
           return ret[0].Id;
